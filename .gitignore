@@ -1,3 +1,7 @@
+#proj-specific ignores
+generated_data/
+original_data/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
