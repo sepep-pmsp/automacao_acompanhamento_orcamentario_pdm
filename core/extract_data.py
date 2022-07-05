@@ -1,30 +1,33 @@
 from openpyxl import load_workbook
 import pandas as pd
 import os
-from .utils import list_files
+from .utils import list_files, solve_path
 from .config import (ENVIRONMENT, ABA_DADOS_PROD, ABA_DADOS_TEST, 
                     ORIGINAL_DATA_DIR, ACCEPTED_EXTENSIONS, VERBOSE,
                     ROW_INICIAL_DADOS, MAX_ROW_DADOS, ORIGINAL_COLUMNS, 
-                    CELULAS_CHECAGEM)
+                    CELULAS_CHECAGEM, EXTRACTED_CSV_NAME)
 
 class Extractor:
 
-    def __init__(self, original_data_dir = None, extensions = None, 
-                col_mapper = None, initial_row = None, final_row = None, verbose=None):
+    def __init__(self, original_data_dir = ORIGINAL_DATA_DIR, extensions = ACCEPTED_EXTENSIONS, 
+                col_mapper = ORIGINAL_COLUMNS, initial_row = ROW_INICIAL_DADOS, final_row = MAX_ROW_DADOS,
+                save_extraction=True, verbose=VERBOSE, env = ENVIRONMENT):
         
-        self.verbose = verbose or VERBOSE
+        self.verbose = verbose
 
-        self.env = ENVIRONMENT
+        self.env = env
         self.sheet = self.solve_sheet()
-        self.extensions = extensions or ACCEPTED_EXTENSIONS
+        self.extensions = extensions
 
-        self.data_folder = original_data_dir or ORIGINAL_DATA_DIR
+        self.data_folder = original_data_dir
         self.original_files = self.list_files()
 
         #col mapper must be dict in {xl_col : df_col} format
-        self.col_mapper = col_mapper or ORIGINAL_COLUMNS
-        self.init_row = initial_row or ROW_INICIAL_DADOS
-        self.final_row = final_row or MAX_ROW_DADOS
+        self.col_mapper = col_mapper
+        self.init_row = initial_row
+        self.final_row = final_row
+
+        self.save =  save_extraction
         
     def solve_sheet(self):
 
@@ -161,7 +164,13 @@ class Extractor:
 
     def __call__(self):
 
-        return self.extract_all_reports()
+        df = self.extract_all_reports()
+
+        if self.save:
+            df_path = EXTRACTED_CSV_NAME
+            df.to_csv(df_path, sep=';', encoding='utf-8')
+
+        return df
 
 
     
