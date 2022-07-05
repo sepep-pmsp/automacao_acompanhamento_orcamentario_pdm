@@ -1,5 +1,5 @@
 import os
-from .utils import solve_dir
+from .utils import solve_dir, solve_path
 
 
 VERBOSE = True
@@ -34,3 +34,16 @@ CELULAS_CHECAGEM = {
     'I6' : 'Processo SEI',
     'N6' : 'Nota de Empenho'
 }
+
+EXTRACTED_CSV_NAME = solve_path('extracao_original.csv', parent=GENERATED_DATA_DIR)
+
+#PADROES PARA CHECAGENS
+
+NUM_CHAR_DOTACAO = 35
+NUM_CHAR_SEI = 16
+
+FONTES_DOTACAO = ('00', '01', '02', '03', '04', '05', 
+                '06', '08', '09', '10', '11', '12', '21')
+
+FINAL_CSV_NAME = solve_path('dados_limpos.csv', parent=GENERATED_DATA_DIR)
+REPORT_NAME = solve_path('relatoro_completo.csv',  parent=GENERATED_DATA_DIR)
