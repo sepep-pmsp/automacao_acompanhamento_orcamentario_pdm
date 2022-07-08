@@ -113,9 +113,7 @@ class Transformer:
     def solve_all_nan(self, df):
 
         df = df.copy()
-        cols = df.columns
-        for col in cols:
-            df[col] = df[col].apply(self.solve_nan)
+        df = df.apply(self.solve_nan)
         
         return df
 
