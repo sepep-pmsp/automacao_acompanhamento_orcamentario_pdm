@@ -145,7 +145,7 @@ class Extractor:
         df = self.drop_empty_rows(df)
 
         if len(df)<1:
-            df.append({'vazio_ou_fora_do_padrao' : 'sim'}, ignore_index=True)
+            df.append({'planilha_fora_do_padrao' : 'sim'}, ignore_index=True)
         else:
             df['vazio_ou_fora_do_padrao'] = 'não'
 

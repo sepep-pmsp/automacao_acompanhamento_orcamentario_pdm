@@ -30,9 +30,9 @@ ORIGINAL_COLUMNS = {
 }
 
 CELULAS_CHECAGEM = {
-    'D6' : 'Dotação Orçamentária',
-    'I6' : 'Processo SEI',
-    'N6' : 'Nota de Empenho'
+    f'D{ROW_INICIAL_DADOS-1}' : 'Dotação Orçamentária',
+    f'I{ROW_INICIAL_DADOS-1}' : 'Processo SEI',
+    f'N{ROW_INICIAL_DADOS-1}' : 'Nota de Empenho'
 }
 
 EXTRACTED_CSV_NAME = solve_path('extracao_original.csv', parent=GENERATED_DATA_DIR)
