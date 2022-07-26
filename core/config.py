@@ -7,7 +7,8 @@ VERBOSE = True
 ORIGINAL_DATA_DIR = solve_dir('original_data')
 GENERATED_DATA_DIR = solve_dir('generated_data')
 
-ENVIRONMENT = os.environ.get('ENVIRONMENT') or 'test'
+#ENVIRONMENT = os.environ.get('ENVIRONMENT') or 'test'
+ENVIRONMENT = 'prod'
 
 
 ABA_DADOS_TEST = 'Monitoramento 1trim_2022'
@@ -15,7 +16,7 @@ ABA_DADOS_PROD = 'Monitoramento 2trim_2022'
 
 ACCEPTED_EXTENSIONS = ('.xlsx', )
 
-ROW_INICIAL_DADOS = 7
+ROW_INICIAL_DADOS = 8
 MAX_ROW_DADOS = 1000
 ORIGINAL_COLUMNS = {
     'D' :'dotacao_orcamentaria',
