@@ -18,8 +18,9 @@ class Loader:
         if report:
             df.to_excel(self.report_file)
         else:
-            columns = [col+'_final' for col in ORIGINAL_COLUMNS.values()]
-            columns = columns + ['checagem_final', 'orgao', 'periodo']
+            columns = [col+'_final' for col in ORIGINAL_COLUMNS.values()
+                    if col not in ('meta', 'iniciativa')]
+            columns = ['orgao', 'periodo', 'meta', 'iniciativa'] + columns + ['checagem_final', 'meta_vazia']
             df = df[columns]
 
             df.to_excel(self.data_file)

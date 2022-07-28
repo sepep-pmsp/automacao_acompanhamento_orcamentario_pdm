@@ -19,6 +19,8 @@ ACCEPTED_EXTENSIONS = ('.xlsx', )
 ROW_INICIAL_DADOS = 8
 MAX_ROW_DADOS = 1000
 ORIGINAL_COLUMNS = {
+    'B' : 'meta',
+    'C' : 'iniciativa',
     'D' :'dotacao_orcamentaria',
     'E' : 'valor_empenhado_dotacao',
     'F' : 'valor_liquidado_dotacao',

@@ -322,6 +322,16 @@ class Transformer:
 
         return df
 
+    def check_meta_vazia(self, df):
+
+        if df is None:
+            df = self.df
+
+        df['meta_vazia'] = df['meta'].apply(lambda x: 
+                    'sim' if pd.isnull(x) or x == '' else 'não')
+
+        return df
+
 
     def __call__(self, df=None):
 
@@ -334,6 +344,7 @@ class Transformer:
         df = self.final_checks_colunas(df)
         df = self.check_final_linha(df)
         df = self.convert_to_number(df)
+        df = self.check_meta_vazia(df)
 
         return df
 
