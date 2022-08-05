@@ -174,12 +174,15 @@ class Transformer:
         splited = val.split('.')
         #item que da erro é a posição -2
         #esta errado se ele tem 7 caracteres
-        if len(splited[-2]) != 7:
-            return val
-        item_arrumado = splited[-3] + splited[-2]
+        try:
+            if len(splited[-2]) != 7:
+                return val
+            item_arrumado = splited[-3] + splited[-2]
 
-        comeco = '.'.join(splited[:-3])
-        final = splited[-1]
+            comeco = '.'.join(splited[:-3])
+            final = splited[-1]
+        except IndexError:
+            return val
 
         return comeco + '.' + item_arrumado + '.' + final
         
