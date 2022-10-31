@@ -12,12 +12,12 @@ ENVIRONMENT = 'prod'
 
 
 ABA_DADOS_TEST = 'Monitoramento 1trim_2022'
-ABA_DADOS_PROD = 'Monitoramento 2trim_2022'
+ABA_DADOS_PROD = 'EXE_acum_3trim2022'
 
 ACCEPTED_EXTENSIONS = ('.xlsx', )
 
 ROW_INICIAL_DADOS = 8
-MAX_ROW_DADOS = 1000
+MAX_ROW_DADOS = 700
 ORIGINAL_COLUMNS = {
     'B' : 'meta',
     'C' : 'iniciativa',
