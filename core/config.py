@@ -51,7 +51,7 @@ EXTRACTED_CSV_NAME = solve_path('extracao_original.csv', parent=GENERATED_DATA_D
 
 #PADROES PARA CHECAGENS
 
-NUM_CHAR_DOTACAO = 35
+NUM_CHAR_DOTACAO = 48
 NUM_CHAR_SEI = 16
 
 FONTES_DOTACAO = {'00', '01', '02', '03', '04', '05', 

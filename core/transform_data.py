@@ -172,15 +172,15 @@ class Transformer:
     def aux_dados_juntos_dotacao(self, val):
 
         splited = val.split('.')
-        #item que da erro é a posição -2
-        #esta errado se ele tem 7 caracteres
+        #item que da erro é a posição -7
+        #esta errado se ele não tiver 7 caracteres
         try:
-            if len(splited[-2]) != 7:
+            if len(splited[-6]) != 8:
                 return val
-            item_arrumado = splited[-3] + splited[-2]
+            item_arrumado = splited[-7] + splited[-6]
 
-            comeco = '.'.join(splited[:-3])
-            final = splited[-1]
+            comeco = '.'.join(splited[:-7])
+            final = '.'.join(splited[-5:])
         except IndexError:
             return val
 
