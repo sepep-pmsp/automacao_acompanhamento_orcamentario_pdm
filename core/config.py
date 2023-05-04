@@ -12,7 +12,7 @@ ENVIRONMENT = 'prod'
 
 
 ABA_DADOS_TEST = 'Monitoramento 1trim_2022'
-ABA_DADOS_PROD = 'EXE_acum_3trim2022'
+ABA_DADOS_PROD = 'EXE_acum_1trim2023'
 
 ACCEPTED_EXTENSIONS = ('.xlsx', )
 
