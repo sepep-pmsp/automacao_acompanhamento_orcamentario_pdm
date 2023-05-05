@@ -175,7 +175,7 @@ class Transformer:
         #item que da erro é a posição -7
         #esta errado se ele não tiver 7 caracteres
         try:
-            if len(splited[-6]) != 8:
+            if len(splited[-6]) != 7:
                 return val
             item_arrumado = splited[-7] + splited[-6]
 
@@ -227,13 +227,13 @@ class Transformer:
 
     def _aux_fonte_dotacao(self, val):
 
-        if val == '' or pd.isnull(val):
+        if val == '' or pd.isnull(val) or 'vazio' in val:
             return 'vazio'
         
         splited = val.split('.')
-        final = splited[-1]
+        fonte = splited[-5]
 
-        teste = final in self.fontes_dotacao
+        teste = fonte in self.fontes_dotacao
 
         if teste:
             return 'ok'
